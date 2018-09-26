@@ -37,8 +37,8 @@ aws --version
 
 ########################################CONFIGURING AWS DETAILS#############################################
 
-aws configure set aws_access_key_id AKIAJAURR5WEJ5OVRI6Q
-aws configure set aws_secret_access_key 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
+aws configure set aws_access_key_id 
+aws configure set aws_secret_access_key 
 aws configure set default.region us-east-1
 
 #######################################CREATION OF CLUSTER##################################################
