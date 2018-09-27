@@ -21,7 +21,7 @@ spec:
         - name: CONFIGSERVER_HOST
           value: configserver-service
         name: eureka
-        image: docker pull ahteshama/cloud-eureka:latest
+        image: ahteshama/cloud-eureka:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8761
