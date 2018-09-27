@@ -10,7 +10,7 @@ apt-get install curl sudo -y
 #read -p "Enter Role ARN: " role_arn
 
 #########################################INSTALLING OF KUBECTL###########################################
-
+cd ~
 curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 cp ./kubectl /bin/kubectl && export PATH=/bin:$PATH
@@ -28,22 +28,22 @@ aws-iam-authenticator help
 
 ########################################INSTALLING AWS-CLI#################################################
 
-sudo apt-get install python-pip python-dev build-essential -y
-sudo pip install --upgrade pip
-sudo pip install --upgrade awscli
-pip install --upgrade --user awscli
-export PATH=/home/ec2-user/.local/bin:$PATH
-aws --version
+#sudo apt-get install python-pip python-dev build-essential -y
+#sudo pip install --upgrade pip
+#sudo pip install --upgrade awscli
+#pip install --upgrade --user awscli
+#export PATH=/home/ec2-user/.local/bin:$PATH
+#aws --version
 
 ########################################CONFIGURING AWS DETAILS#############################################
 
-aws configure set aws_access_key_id 
-aws configure set aws_secret_access_key 
-aws configure set default.region us-east-1
+#aws configure set aws_access_key_id 
+#aws configure set aws_secret_access_key 
+#aws configure set default.region us-east-1
 
 #######################################CREATION OF CLUSTER##################################################
 
-aws eks create-cluster --name devops-demo --role-arn arn:aws:iam::869552948899:role/Devops_demo --resources-vpc-config subnetIds=subnet-f221a6dc,subnet-8f2098e8,securityGroupIds=sg-02ff377553e1e34a6
+aws eks create-cluster --name devops-demo --role-arn arn:aws:iam::328110459884:role/Devops_demo --resources-vpc-config subnetIds=subnet-8320a6e4,subnet-1bcd4135,securityGroupIds=sg-dc448f93
 
 sleep 13m
 
