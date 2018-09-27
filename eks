@@ -95,6 +95,8 @@ kubectl get svc
 ############################################CLOUD FORMATION(STACK)###############################################
 
 cd ~
+cp /home/ubuntu/sampletemplate.yaml .
+cp /home/ubuntu/rdp .
 aws cloudformation create-stack --stack-name devops-demo-worker-nodes --template-body file://sampletemplate.yaml --capabilities CAPABILITY_IAM
 sleep 5m
 NodeInstanceRole=$(aws cloudformation describe-stacks --stack-name devops-demo-worker-nodes | grep OutputValue | cut -d '"' -f4)
