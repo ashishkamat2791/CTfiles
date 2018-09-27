@@ -21,7 +21,7 @@ spec:
         - name: CONFIGSERVER_HOST
           value: configserver-service
         name: eureka
-        image: marcopaga/cloud-eureka:1
+        image: docker pull ahteshama/cloud-eureka:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8761
@@ -74,7 +74,7 @@ spec:
         - name: CONFIGSERVER_HOST
           value: configserver-service
         name: configserver
-        image: marcopaga/cloud-configserver:1
+        image: ahteshama/cloud-configserver:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8888
@@ -126,7 +126,7 @@ spec:
         - name: EUREKA_HOST
           value: eureka-service #eureka-service.default.svc.cluster.local
         name: edgeservice
-        image: marcopaga/cloud-edgeservice:1
+        image: ahteshama/cloud-edgeservice:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 9090
@@ -179,7 +179,7 @@ spec:
         - name: EUREKA_HOST
           value: eureka-service #eureka-service.default.svc.cluster.local
         name: frontend
-        image: marcopaga/cloud-frontend:1
+        image: ahteshama/cloud-frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8091
@@ -217,7 +217,7 @@ spec:
         - name: EUREKA_HOST
           value: eureka-service #eureka-service.default.svc.cluster.local
         name: backend
-        image: marcopaga/cloud-backend:1
+        image: ahteshama/cloud-backend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8090
