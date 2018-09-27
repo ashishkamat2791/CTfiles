@@ -7,7 +7,7 @@ Parameters:
   KeyName:
     Description: The EC2 Key Pair to allow SSH access to the instances
     Type: AWS::EC2::KeyPair::KeyName
-    Default: n_virg
+    Default: ahtesham_nvirg
 
   NodeImageId:
     Type: AWS::EC2::Image::Id
@@ -52,17 +52,17 @@ Parameters:
   ClusterControlPlaneSecurityGroup:
     Description: The security group of the cluster control plane.
     Type: AWS::EC2::SecurityGroup::Id
-    Default: sg-02ff377553e1e34a6
+    Default: sg-dc448f93
 
   VpcId:
     Description: The VPC of the worker instances
     Type: AWS::EC2::VPC::Id
-    Default: vpc-4c6ebb36
+    Default: vpc-a45381de
 
   Subnets:
     Description: The subnets where workers can be created.
     Type: List<AWS::EC2::Subnet::Id>
-    Default: subnet-f221a6dc,subnet-8f2098e8
+    Default: subnet-8320a6e4,subnet-1bcd4135
 
 Metadata:
   AWS::CloudFormation::Interface:
