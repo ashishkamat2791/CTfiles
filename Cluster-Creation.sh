@@ -92,5 +92,6 @@ KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo
 export KUBECONFIG
 echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo' >> ~/.bashrc
 kubectl get svc
+sudo sh -v Cloud-Formation.sh
 
 
