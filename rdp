@@ -1,7 +1,0 @@
-#!/bin/bash
-sudo -i
-apt-get update -y
-apt-get install lxde -y
-sudo start lxdm
-apt-get install xrdp -y
-
