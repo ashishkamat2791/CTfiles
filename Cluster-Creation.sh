@@ -1,6 +1,6 @@
 #!/bin/bash
 #sudo -i
-apt-get update -y
+sudo apt-get update -y
 apt-get install curl sudo -y
 whoami
 #########################################TAKING INPUTS###################################################
