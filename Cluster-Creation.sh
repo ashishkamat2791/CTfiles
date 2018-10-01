@@ -14,7 +14,7 @@ whoami
 cd ~
 curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
 chmod +x ./kubectl
-cp ./kubectl /bin/kubectl && export PATH=/bin:$PATH
+sudo cp ./kubectl /bin/kubectl && export PATH=/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 kubectl version --short --client
 whoami
@@ -22,7 +22,7 @@ whoami
 
 curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
 chmod +x ./aws-iam-authenticator
-cp ./aws-iam-authenticator /bin/aws-iam-authenticator && export PATH=/bin:$PATH
+sudo cp ./aws-iam-authenticator /bin/aws-iam-authenticator && export PATH=/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 aws-iam-authenticator help
 whoami
