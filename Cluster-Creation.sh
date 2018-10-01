@@ -2,7 +2,7 @@
 #sudo -i
 apt-get update -y
 apt-get install curl sudo -y
-
+whoami
 #########################################TAKING INPUTS###################################################
 
 #read -p "Enter Your AWS ACCESS KEY: "  access_key
@@ -17,7 +17,7 @@ chmod +x ./kubectl
 cp ./kubectl /bin/kubectl && export PATH=/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 kubectl version --short --client
-
+whoami
 #########################################INSTALLATION OF AWS AUTHENTICATOR#################################
 
 curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
@@ -25,7 +25,7 @@ chmod +x ./aws-iam-authenticator
 cp ./aws-iam-authenticator /bin/aws-iam-authenticator && export PATH=/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 aws-iam-authenticator help
-
+whoami
 
 ########################################INSTALLING AWS-CLI#################################################
 
@@ -47,7 +47,7 @@ aws-iam-authenticator help
 aws eks create-cluster --name devops-demo --role-arn arn:aws:iam::328110459884:role/Devops_demo --resources-vpc-config subnetIds=subnet-8320a6e4,subnet-1bcd4135,securityGroupIds=sg-dc448f93
 
 sleep 13m
-
+whoami
 endpoint=$(aws eks describe-cluster --name devops-demo  --query cluster.endpoint --output text)
 certificate=$(aws eks describe-cluster --name devops-demo  --query cluster.certificateAuthority.data --output text)
 
@@ -91,7 +91,5 @@ EOL
 KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo
 export KUBECONFIG
 echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo' >> ~/.bashrc
+whoami
 kubectl get svc
-sudo sh -v Cloud-Formation.sh
-
-
