@@ -1,13 +1,13 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Amazon EKS - Node Group - For Devops Demo - Owner Ahtesham'
+Description: 'Amazon EKS - Node Group - For Devops Demo'
 
 Parameters:
 
   KeyName:
     Description: The EC2 Key Pair to allow SSH access to the instances
     Type: AWS::EC2::KeyPair::KeyName
-    Default: ahtesham_nvirg
+    Default: new_pair
 
   NodeImageId:
     Type: AWS::EC2::Image::Id
@@ -52,17 +52,17 @@ Parameters:
   ClusterControlPlaneSecurityGroup:
     Description: The security group of the cluster control plane.
     Type: AWS::EC2::SecurityGroup::Id
-    Default: sg-dc448f93
+    Default: sg-0caeb8d99d0ebe0ae
 
   VpcId:
     Description: The VPC of the worker instances
     Type: AWS::EC2::VPC::Id
-    Default: vpc-a45381de
+    Default: vpc-e38de39a
 
   Subnets:
     Description: The subnets where workers can be created.
     Type: List<AWS::EC2::Subnet::Id>
-    Default: subnet-8320a6e4,subnet-1bcd4135
+    Default: subnet-5723be0d,subnet-01ef51cd5c6bc5156
 
 Metadata:
   AWS::CloudFormation::Interface:
