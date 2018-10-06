@@ -1,8 +1,5 @@
 #!/bin/bash
-#sudo -i
 sudo apt-get update -y
-apt-get install curl sudo -y
-whoami
 #########################################TAKING INPUTS###################################################
 
 #read -p "Enter Your AWS ACCESS KEY: "  access_key
@@ -44,7 +41,7 @@ whoami
 
 #######################################CREATION OF CLUSTER##################################################
 
-aws eks create-cluster --name devops-demo --role-arn arn:aws:iam::328110459884:role/Devops_demo --resources-vpc-config subnetIds=subnet-8320a6e4,subnet-1bcd4135,securityGroupIds=sg-dc448f93
+aws eks create-cluster --name devops-demo --role-arn arn:aws:iam::715146130151:role/Devops_demo --resources-vpc-config subnetIds=subnet-5723be0d,subnet-01ef51cd5c6bc5156,securityGroupIds=sg-0caeb8d99d0ebe0ae
 
 sleep 13m
 whoami
