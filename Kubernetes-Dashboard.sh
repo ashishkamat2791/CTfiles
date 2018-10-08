@@ -5,9 +5,11 @@ sudo apt-get install lxde -y
 sudo start lxdm
 sudo apt-get install xrdp -y
 
-KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo
+CLUSTER_NAME=`grep clusterName properties | cut -d "=" -f2`
+
+KUBECONFIG=$KUBECONFIG:~/.kube/config-$CLUSTER_NAME
 export KUBECONFIG
-echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo' >> ~/.bashrc
+echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-$CLUSTER_NAME' >> ~/.bashrc
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
@@ -42,5 +44,5 @@ EOL
 kubectl apply -f /home/ubuntu/eks-admin-cluster-role-binding.yaml
 
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
-kubectl proxy
+#kubectl proxy
 
