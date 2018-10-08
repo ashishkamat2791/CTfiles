@@ -7,7 +7,7 @@ worker_ami_id=ami-0440e4f6b9713faf6
 master_ami_id=ami-0ac019f4fcb7cb7e6
 vpc_id=vpc-e38de39a
 
-stack_name=devops-demo-worker-nodes
+stack_name=worker-nodes
 min_nodes=1
 max_node=3
 
