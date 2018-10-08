@@ -7,6 +7,12 @@ sudo apt-get update -y
 #read -p "Enter AWS Region: "  region
 #read -p "Enter Role ARN: " role_arn
 
+SUBNET1=`grep subnet1 properties | cut -d "=" -f2`
+SUBNET2=`grep subnet2 properties | cut -d "=" -f2`
+SECURITY_GROUP=`grep securityGroup properties | cut -d "=" -f2`
+ROLE_ARN=`grep roleARN properties | cut -d "=" -f2`
+CLUSTER_NAME=`grep clusterName properties | cut -d "=" -f2`
+
 #########################################INSTALLING OF KUBECTL###########################################
 cd ~
 curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
@@ -41,10 +47,10 @@ whoami
 
 #######################################CREATION OF CLUSTER##################################################
 
-aws eks create-cluster --name devops-demo --role-arn arn:aws:iam::715146130151:role/Devops_demo --resources-vpc-config subnetIds=subnet-5723be0d,subnet-01ef51cd5c6bc5156,securityGroupIds=sg-0caeb8d99d0ebe0ae
+aws eks create-cluster --name $CLUSTER_NAME --role-arn $ROLE_ARN --resources-vpc-config subnetIds=$SUBNET1,$SUBNET2,securityGroupIds=$SECURITY_GROUP
 
 sleep 13m
-whoami
+
 endpoint=$(aws eks describe-cluster --name devops-demo  --query cluster.endpoint --output text)
 certificate=$(aws eks describe-cluster --name devops-demo  --query cluster.certificateAuthority.data --output text)
 
@@ -78,7 +84,7 @@ users:
       args:
         - "token"
         - "-i"
-        - "devops-demo"
+        - "$CLUSTER_NAME"
       #  - "-r"
       #  - "arn:aws:iam::715146130151:role/Devops_demo"
       # env:
@@ -88,5 +94,5 @@ EOL
 KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo
 export KUBECONFIG
 echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo' >> ~/.bashrc
-whoami
+
 kubectl get svc
