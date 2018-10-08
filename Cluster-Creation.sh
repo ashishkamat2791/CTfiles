@@ -51,16 +51,16 @@ aws eks create-cluster --name $CLUSTER_NAME --role-arn $ROLE_ARN --resources-vpc
 
 sleep 13m
 
-endpoint=$(aws eks describe-cluster --name devops-demo  --query cluster.endpoint --output text)
-certificate=$(aws eks describe-cluster --name devops-demo  --query cluster.certificateAuthority.data --output text)
+endpoint=$(aws eks describe-cluster --name $CLUSTER_NAME --query cluster.endpoint --output text)
+certificate=$(aws eks describe-cluster --name $CLUSTER_NAME --query cluster.certificateAuthority.data --output text)
 
 cd ~ && touch endpoint
 echo $endpoint > endpoint
 echo $certificate >> endpoint
 
 mkdir -p ~/.kube
-cd ~/.kube && touch config-devops-demo
-cat >~/.kube/config-devops-demo <<EOL
+cd ~/.kube && touch config-$CLUSTER_NAME
+cat >~/.kube/config-$CLUSTER_NAME <<EOL
 apiVersion: v1
 clusters:
 - cluster:
