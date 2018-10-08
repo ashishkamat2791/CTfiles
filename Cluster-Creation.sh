@@ -91,8 +91,8 @@ users:
         # - name: AWS_PROFILE
         #   value: "<aws-profile>"
 EOL
-KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo
+KUBECONFIG=$KUBECONFIG:~/.kube/config-$CLUSTER_NAME
 export KUBECONFIG
-echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo' >> ~/.bashrc
+echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-$CLUSTER_NAME' >> ~/.bashrc
 
 kubectl get svc
