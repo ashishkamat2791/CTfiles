@@ -1,7 +1,7 @@
 #!/bin/bash
 ############################################CLOUD FORMATION(STACK)###############################################
 
-CLUSTER_NAME=`grep clusterName properties | cut -d "=" -f2`
+CLUSTER_NAME=`grep cluster_Name properties | cut -d "=" -f2`
 
 cd ~
 cp /home/ubuntu/sampletemplate.yaml .
@@ -14,7 +14,7 @@ cd ~/.kube
 curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-08-30/aws-auth-cm.yaml
 echo $NodeInstanceRole
 sed -i "s#<ARN of instance role (not instance profile)>#$NodeInstanceRole#" aws-auth-cm.yaml
-KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo
+KUBECONFIG=$KUBECONFIG:~/.kube/config-$CLUSTER_NAME
 export KUBECONFIG
-echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devops-demo' >> ~/.bashrc
+echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-CLUSTER_NAME' >> ~/.bashrc
 kubectl apply -f ~/.kube/aws-auth-cm.yaml
