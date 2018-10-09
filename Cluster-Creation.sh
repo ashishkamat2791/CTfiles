@@ -9,9 +9,9 @@ sudo apt-get update -y
 
 SUBNET1=`grep subnet1 properties | cut -d "=" -f2`
 SUBNET2=`grep subnet2 properties | cut -d "=" -f2`
-SECURITY_GROUP=`grep securityGroup properties | cut -d "=" -f2`
+SECURITY_GROUP=`grep security_Group properties | cut -d "=" -f2`
 ROLE_ARN=`grep roleARN properties | cut -d "=" -f2`
-CLUSTER_NAME=`grep clusterName properties | cut -d "=" -f2`
+CLUSTER_NAME=`grep cluster_Name properties | cut -d "=" -f2`
 
 #########################################INSTALLING OF KUBECTL###########################################
 cd ~
