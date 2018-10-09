@@ -5,7 +5,7 @@ sudo apt-get install lxde -y
 sudo start lxdm
 sudo apt-get install xrdp -y
 
-CLUSTER_NAME=`grep clusterName properties | cut -d "=" -f2`
+CLUSTER_NAME=`grep cluster_Name properties | cut -d "=" -f2`
 
 KUBECONFIG=$KUBECONFIG:~/.kube/config-$CLUSTER_NAME
 export KUBECONFIG
@@ -45,4 +45,3 @@ kubectl apply -f /home/ubuntu/eks-admin-cluster-role-binding.yaml
 
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
 #kubectl proxy
-
