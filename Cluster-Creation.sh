@@ -20,7 +20,7 @@ chmod +x ./kubectl
 sudo cp ./kubectl /bin/kubectl && export PATH=/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 kubectl version --short --client
-whoami
+
 #########################################INSTALLATION OF AWS AUTHENTICATOR#################################
 
 curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
@@ -28,7 +28,6 @@ chmod +x ./aws-iam-authenticator
 sudo cp ./aws-iam-authenticator /bin/aws-iam-authenticator && export PATH=/bin:$PATH
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 aws-iam-authenticator help
-whoami
 
 ########################################INSTALLING AWS-CLI#################################################
 
