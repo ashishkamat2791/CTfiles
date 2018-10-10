@@ -1,4 +1,4 @@
-cluster_Name=devops-demo
+cluster_Name=devops
 roleARN=arn:aws:iam::715146130151:role/Devops_demo
 subnet1=subnet-5723be0d
 subnet2=subnet-01ef51cd5c6bc5156
